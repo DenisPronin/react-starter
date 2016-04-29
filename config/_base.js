@@ -3,16 +3,18 @@ import path from 'path'
 const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const isProd = env === 'production';
 
+let pathBase = path.resolve(__dirname, '../');
+
 let config = {
   env : env,
 
   // ----------------------------------
   // Project Structure
   // ----------------------------------
-  path_base  : path.resolve(__dirname, '../'),
-  dir_client : 'app',
-  dir_dist   : 'dist',
-  dir_server : 'server',
+  path_base: pathBase,
+  path_dist: pathBase + '/dist',
+  path_client: pathBase + '/app',
+  path_server: pathBase + '/server',
 
   // ----------------------------------
   // Server Configuration

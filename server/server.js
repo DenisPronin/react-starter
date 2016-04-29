@@ -43,7 +43,7 @@ app.use(express.static(config.path_base));
 
 // this is necessary to handle URL correctly since client uses Browser History
 app.get('*', function (request, response) {
-  response.sendFile(`${config.path_base}/${config.dir_client}/index.html`);
+  response.sendFile(`${config.path_client}/index.html`);
 });
 
 // We need to use basic HTTP service to proxy

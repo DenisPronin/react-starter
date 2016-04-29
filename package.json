@@ -6,7 +6,9 @@
     "node": ">=5.0.0",
     "npm": "^3.0.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "babel-node server/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DenisPronin/react-starter.git"
@@ -45,8 +47,13 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
+    "css-loader": "^0.23.1",
+    "cssnano": "^3.5.2",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.16.0",
+    "postcss-loader": "^0.8.2",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
