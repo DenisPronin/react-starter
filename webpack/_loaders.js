@@ -4,8 +4,23 @@ import config from '../config'
 
 const isProduction = config.env === 'production';
 
-export let preLoaders = [];
+// ------------------------------------
+// Pre-Loaders
+// ------------------------------------
+export let preLoaders = [{
+  test: /\.js$/,
+  loader: 'eslint',
+  exclude: /node_modules/
+}];
 
+export let eslint = {
+  configFile: `${config.path_base}/.eslintrc`,
+  emitWarning: config.compiler_enable_hmr
+};
+
+// ------------------------------------
+// Loaders
+// ------------------------------------
 let cssLoaders = isProduction
   ? ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
   : 'style-loader!css-loader!postcss-loader!sass-loader';
