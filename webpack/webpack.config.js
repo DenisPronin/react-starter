@@ -28,7 +28,7 @@ const output = {
  * Plugins
  * */
 let plugins = [
-  new webpack.DefinePlugin(config.globals),
+  new webpack.DefinePlugin(config.globals)
 ];
 
 if (!isProduction) {
@@ -45,6 +45,8 @@ if (!isProduction) {
 }
 else {
   plugins = plugins.concat([
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       template: `${config.path_client}/index.html`,
       hash: false,
@@ -54,17 +56,14 @@ else {
         collapseWhitespace: true
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         unused: true,
-        dead_code: true
+        dead_code: true,
+        warnings: false
       }
     }),
-    new ExtractTextPlugin('[name].[contenthash].css', {
-      allChunks: true
-    })
+    new ExtractTextPlugin('[name].css')
   ]);
 }
 
