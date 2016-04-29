@@ -7,8 +7,8 @@ const isProduction = config.env === 'production';
 export let preLoaders = [];
 
 let cssLoaders = isProduction
-  ? ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-  : 'style-loader!css-loader!postcss-loader';
+  ? ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+  : 'style-loader!css-loader!postcss-loader!sass-loader';
 
 export let loaders = [
   // ES-2015
@@ -27,7 +27,7 @@ export let loaders = [
   },
   // Styles
   {
-    test: /\.css$/,
+    test: /\.scss$/,
     include: /app/,
     loader: cssLoaders
   },
@@ -55,3 +55,7 @@ export let postcss = [
     }
   })
 ];
+
+export let sassLoader = {
+  includePaths: `${config.path_client}/styles`
+};

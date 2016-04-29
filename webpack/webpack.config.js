@@ -3,7 +3,7 @@ import config from '../config'
 
 import { entry, output, resolve } from './_common'
 import { plugins } from './_plugins'
-import { preLoaders, loaders, postcss } from './_loaders'
+import { preLoaders, loaders, postcss, sassLoader } from './_loaders'
 
 const webpackConfig = {
   name: 'client',
@@ -17,6 +17,7 @@ const webpackConfig = {
     preLoaders,
     loaders
   },
+  sassLoader,
   postcss
 };
 
