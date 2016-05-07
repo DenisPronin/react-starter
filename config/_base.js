@@ -26,7 +26,7 @@ let config = {
   // ----------------------------------
   // Compiler Configuration
   // ----------------------------------
-  compiler_devtool   : !isProd ? 'cheap-module-eval-source-map' : null,
+  compiler_devtool   : !isProd ? 'eval-source-map' : null,
   compiler_enable_hmr: false,
   compiler_public_path: '',
 
