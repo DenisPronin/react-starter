@@ -1,9 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import DevTools from './redux/utils/DevTools'
+import configureStore from './redux/configureStore'
 
-import './styles/main.scss'
+import AppLayout from './views/AppLayout';
+
+const store = configureStore();
 
 ReactDOM.render(
-  <div>test</div>,
+  <Provider store={store}>
+    <div>
+      <AppLayout />
+      {__DEBUG__ && <DevTools />}
+    </div>
+  </Provider>,
   document.getElementById('root')
-)
+);

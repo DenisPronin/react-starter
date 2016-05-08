@@ -44,6 +44,7 @@
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
+    "redux-actions": "^0.9.1",
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
@@ -78,6 +79,9 @@
     "html-webpack-plugin": "^2.16.0",
     "node-sass": "^3.6.0",
     "postcss-loader": "^0.8.2",
+    "redux-devtools": "^3.2.0",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
