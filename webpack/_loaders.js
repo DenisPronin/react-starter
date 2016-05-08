@@ -36,8 +36,8 @@ export let loaders = [
       cacheDirectory: true,
       plugins: ['transform-runtime'],
       presets: config.compiler_enable_hmr
-        ? ['es2015', 'react', 'react-hmre']
-        : ['es2015', 'react']
+        ? ['es2015', 'react', 'stage-0', 'react-hmre']
+        : ['es2015', 'react', 'stage-0']
     }
   },
   // Styles
