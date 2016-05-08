@@ -7,19 +7,8 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "start": "better-npm-run start",
-    "build": "better-npm-run build"
-  },
-  "betterScripts": {
-    "start": {
-      "command": "babel-node server/server.js"
-    },
-    "build": {
-      "command": "babel-node webpack/webpack.compiler.js",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
+    "start": "babel-node server/server.js",
+    "build": "cross-env NODE_ENV=production babel-node webpack/webpack.compiler.js"
   },
   "repository": {
     "type": "git",
@@ -61,7 +50,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
-    "better-npm-run": "0.0.8",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "cssnano": "^3.5.2",
     "debug": "^2.2.0",
