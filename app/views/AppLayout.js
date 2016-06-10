@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import connectWrapper from '../redux/utils/connect'
-import actions from '../redux/rootActions'
+import { rootActions } from '../redux/rootReducer'
 
 import '../styles/main.scss'
 import Counter from '../components/Counter'
@@ -41,4 +41,4 @@ export class AppLayout extends React.Component {
 
 }
 
-export default connectWrapper(actions, AppLayout)
+export default connectWrapper(rootActions, AppLayout)

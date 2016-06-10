@@ -1,6 +1,6 @@
 import cssnano from 'cssnano'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import config from '../config'
+import config from '../../config'
 
 const isProduction = config.env === 'production';
 
@@ -35,7 +35,7 @@ export let loaders = [
     query: {
       cacheDirectory: true,
       plugins: ['transform-runtime'],
-      presets: config.compiler_enable_hmr
+      presets: !isProduction
         ? ['es2015', 'react', 'stage-0', 'react-hmre']
         : ['es2015', 'react', 'stage-0']
     }

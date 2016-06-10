@@ -6,11 +6,9 @@ export default function connectWrapper (actions, view) {
     state
   });
 
-  function mapDispatchToProps(dispatch) {
-    return {
-      actions: bindActionCreators(actions, dispatch)
-    };
-  }
+  const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(actions, dispatch)
+  });
 
   return connect(mapStateToProps, mapDispatchToProps)(view)
 }

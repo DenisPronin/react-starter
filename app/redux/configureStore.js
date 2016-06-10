@@ -4,10 +4,11 @@ import {
   createStore
 } from 'redux'
 import thunk from 'redux-thunk'
-import rootReducer from './rootReducer'
+import promiseMiddleware from 'redux-promise-middleware';
+import { rootReducers } from './rootReducer'
 
 export default function configureStore(initialState) {
-  const middleware = applyMiddleware(thunk);
+  const middleware = applyMiddleware(thunk, promiseMiddleware());
 
   let createStoreWithMiddleware;
 
@@ -24,7 +25,7 @@ export default function configureStore(initialState) {
   }
 
   const store = createStoreWithMiddleware(createStore)(
-    rootReducer, initialState
+    rootReducers, initialState
   );
 
   return store;

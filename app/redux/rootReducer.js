@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
-import counter from './modules/counter'
+import counter, { actions as counterActions } from './modules/counter'
 
-export default combineReducers({
+export const rootReducers = combineReducers({
   counter
-})
+});
+
+export const rootActions = Object.assign(
+  counterActions
+);

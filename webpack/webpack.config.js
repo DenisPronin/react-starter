@@ -1,9 +1,8 @@
-import webpack from 'webpack'
 import config from '../config'
 
-import { entry, output, resolve } from './_common'
-import { plugins } from './_plugins'
-import { preLoaders, loaders, eslint, postcss, sassLoader } from './_loaders'
+import { entry, output, resolve } from './options/_common'
+import { plugins } from './options/_plugins'
+import { preLoaders, loaders, eslint, postcss, sassLoader } from './options/_loaders'
 
 const webpackConfig = {
   name: 'client',
