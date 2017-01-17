@@ -5,9 +5,8 @@ import {
 } from 'redux'
 import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise-middleware';
-import { rootReducers } from './rootReducer'
 
-export default function configureStore(initialState) {
+export default function configureStore (initialState, rootReducers) {
   const middleware = applyMiddleware(thunk, promiseMiddleware());
 
   let createStoreWithMiddleware;
