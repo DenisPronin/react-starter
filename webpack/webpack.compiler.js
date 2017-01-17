@@ -1,5 +1,7 @@
 import webpack from 'webpack'
+import config from '../config'
 import webpackConfig from './webpack.config'
+import fs from 'fs-extra'
 
 const compiler = webpack(webpackConfig);
 
@@ -27,4 +29,7 @@ compiler.run((err, stats) => {
   else {
     console.log('No errors or warnings encountered.')
   }
+
+  console.log('Copy static assets to dist folder.');
+  fs.copySync(`${config.path_client}/static`, config.path_dist)
 });

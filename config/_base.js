@@ -14,14 +14,13 @@ let config = {
   path_base: pathBase,
   path_dist: pathBase + '/dist',
   path_client: pathBase + '/app',
-  path_server: pathBase + '/server',
 
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
   server_host : 'localhost',
-  server_port : process.env.PORT || 5075,
-  webpack_port : process.env.PORT || 5076,
+  server_port : process.env.PORT || 5085,
+  webpack_port : process.env.PORT || 5086,
 
   // ----------------------------------
   // Compiler Configuration

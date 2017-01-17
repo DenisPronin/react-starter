@@ -7,6 +7,7 @@ import { preLoaders, loaders, eslint, postcss, sassLoader } from './options/_loa
 const webpackConfig = {
   name: 'client',
   target: 'web',
+  cache: true,
   devtool: config.compiler_devtool,
   resolve,
   entry,

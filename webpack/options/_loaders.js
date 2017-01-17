@@ -15,15 +15,19 @@ export let preLoaders = [{
 
 export let eslint = {
   configFile: `${config.path_base}/.eslintrc`,
-  emitWarning: config.compiler_enable_hmr
+  emitWarning: !isProduction
 };
 
 // ------------------------------------
 // Loaders
 // ------------------------------------
-let cssLoaders = isProduction
+let sassLoaders = isProduction
   ? ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
   : 'style-loader!css-loader!postcss-loader!sass-loader';
+
+let cssLoaders = isProduction
+  ? ExtractTextPlugin.extract('style-loader', 'css-loader')
+  : 'style-loader!css-loader';
 
 export let loaders = [
   // ES-2015
@@ -44,16 +48,21 @@ export let loaders = [
   {
     test: /\.scss$/,
     include: /app/,
+    loader: sassLoaders
+  },
+  {
+    test: /\.css$/,
+    exclude: /app/,
     loader: cssLoaders
   },
   // Fonts
-  {test: /\.woff(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&mimetype=application/font-woff'},
-  {test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&mimetype=application/font-woff2'},
-  {test: /\.ttf(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&mimetype=application/octet-stream'},
+  {test: /\.woff(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
+  {test: /\.woff2(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
+  {test: /\.ttf(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
   {test: /\.eot(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
-  {test: /\.svg(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&mimetype=image/svg+xml'},
+  {test: /\.svg(\?.*)?$/, loader: 'file?prefix=fonts/&name=[path][name].[ext]'},
   // Images
-  {test: /\.(png|jpg)$/, loader: 'url'}
+  {test: /\.(png|jpg|gif)$/, loader: 'url'}
 ];
 
 export let postcss = [

@@ -7,14 +7,14 @@ let webpackConfig = {
     vendor: [path.join(__dirname, 'vendors/vendors.js')]
   },
   output: {
-    path: path.join(__dirname, '../dist/dll'),
+    path: path.join(config.path_dist),
     filename: 'dll.[name].js',
     library: '[name]'
   },
   plugins: [
     new webpack.DefinePlugin(config.globals),
     new webpack.DllPlugin({
-      path: path.join(__dirname, '../dist/dll', '[name]-manifest.json'),
+      path: path.join(config.path_dist, '[name]-manifest.json'),
       name: '[name]',
       context: path.resolve(__dirname, '../app')
     })

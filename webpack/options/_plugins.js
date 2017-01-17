@@ -10,6 +10,7 @@ const isProduction = config.env === 'production';
 let htmlWebpackOptions = {
   template: `${config.path_client}/index.html`,
   hash: false,
+  favicon: `${config.path_client}/static/favicon.ico`,
   filename: 'index.html',
   inject: 'body'
 };
@@ -24,10 +25,10 @@ export let plugins = [
   new webpack.DefinePlugin(config.globals),
   new webpack.DllReferencePlugin({
     context: `${config.path_client}`,
-    manifest: require(config.path_dist + "/dll/vendor-manifest.json")
+    manifest: require(config.path_dist + "/vendor-manifest.json")
   }),
   new HtmlWebpackPlugin(htmlWebpackOptions),
-  new AddAssetHtmlPlugin({ filename: require.resolve(`${config.path_dist}/dll/dll.vendor.js`), includeSourcemap: false })
+  new AddAssetHtmlPlugin({ filename: require.resolve(`${config.path_dist}/dll.vendor.js`), includeSourcemap: false })
 ];
 
 if (!isProduction) {

@@ -9,14 +9,13 @@
 * [redux-devtools](https://github.com/gaearon/redux-devtools)
 * [sass](http://sass-lang.com/)
 * [postcss autoprefixer](https://github.com/postcss/autoprefixer)
-* [express](http://expressjs.com/)
 * [webpack](https://github.com/webpack/webpack)
 * hot module replacement
 * [babel](https://github.com/babel/babel)
 * [eslint](http://eslint.org)
 
 ## Requirements
-* node `>=5.0.0`
+* node `>=4.0.0`
 * npm `^3.0.0`
 
 ## Usage

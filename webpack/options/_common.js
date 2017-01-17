@@ -6,7 +6,8 @@ const buildEntryPoint = function (entryPoint) {
   let entry = [entryPoint];
   if (!isProduction) {
     entry.unshift(
-      `webpack-hot-middleware/client?path=/__webpack_hmr`
+      `webpack-dev-server/client?http://${config.server_host}:${config.server_port}`,
+      'webpack/hot/dev-server'
     );
   }
   return entry;
